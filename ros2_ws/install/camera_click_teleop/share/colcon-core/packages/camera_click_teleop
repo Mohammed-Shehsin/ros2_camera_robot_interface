@@ -1,1 +1,1 @@
-cv_bridge:geometry_msgs:image_transport:rclpy:sensor_msgs
+cv_bridge:geometry_msgs:rclpy:sensor_msgs:trajectory_msgs:v4l2_camera

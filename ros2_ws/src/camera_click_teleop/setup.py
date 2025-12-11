@@ -7,21 +7,29 @@ setup(
     version='0.0.0',
     packages=[package_name],
     data_files=[
+        # needed so `ros2 pkg list` can see the package
         ('share/ament_index/resource_index/packages',
          ['resource/' + package_name]),
+        # install package.xml
         ('share/' + package_name, ['package.xml']),
+        # install launch files
+        ('share/' + package_name + '/launch', [
+            'launch/click_teleop_with_v4l2.launch.py',
+            'launch/tb3_click_teleop.launch.py',
+            'launch/ur5_click_teleop_with_v4l2.launch.py',
+        ]),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='student',
-    maintainer_email='student@example.com',
-    description='Camera click teleop for TurtleBot',
-    license='TODO: License',
+    maintainer='YOUR_NAME',
+    maintainer_email='YOUR_EMAIL@example.com',
+    description='Camera-based click teleoperation for TurtleBot and UR robots',
+    license='TODO',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            # executable name      module path                        : function
             'click_teleop_node = camera_click_teleop.click_teleop_node:main',
+            'ur5_click_teleop_node = camera_click_teleop.ur5_click_teleop_node:main',
         ],
     },
 )
