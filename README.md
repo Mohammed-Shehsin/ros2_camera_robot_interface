@@ -168,6 +168,12 @@ Run URSim + ROS app in one command:
 xhost +local:docker
 docker compose up --build
 ```
+Open URSim:
+```
+http://127.0.0.1:6080/vnc.html
+```
+
+Then run External Control (Play) in PolyScope.
 
 ##  Demo Screenshots
 
