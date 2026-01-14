@@ -10,7 +10,7 @@ The system supports:
 ## Project Motivation
 Traditional robot teleoperation relies on keyboards, joysticks, or specialized hardware.  
 This project explores a **vision-based interaction paradigm**, where the user controls a robot **directly by clicking on a camera view**, making teleoperation more intuitive and accessible.
----
+
 ## Repository Structure
 ```
 ros2_camera_robot_interface/
