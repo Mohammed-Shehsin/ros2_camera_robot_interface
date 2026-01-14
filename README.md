@@ -166,7 +166,8 @@ ros2 control list_controllers
 Run URSim + ROS app in one command:
 ```
 xhost +local:docker
-docker compose up --build
+docker-compose up --build
+
 ```
 Open URSim:
 ```
