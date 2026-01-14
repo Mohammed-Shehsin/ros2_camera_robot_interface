@@ -161,6 +161,14 @@ Check UR5 state:
 ros2 topic echo /joint_states --once
 ros2 control list_controllers
 ```
+
+## Docker (Plug-and-Play)
+Run URSim + ROS app in one command:
+```
+xhost +local:docker
+docker compose up --build
+```
+
 ##  Demo Screenshots
 
 ### UR5 Click Teleoperation – Center Click
