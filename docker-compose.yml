@@ -1,0 +1,45 @@
+services:
+  ursim:
+    image: universalrobots/ursim_e-series:5.24.0
+    container_name: ursim
+    restart: unless-stopped
+    ports:
+      - "6080:6080"     # noVNC (PolyScope in browser)
+      - "29999:29999"   # Dashboard server
+      - "30001:30001"   # Primary interface
+      - "30002:30002"   # Secondary interface
+      - "30004:30004"   # RTDE
+    environment:
+      - ROBOT_MODEL=UR5e
+    networks:
+      - ur_net
+
+  ros_app:
+    build: .
+    container_name: ros_app
+    depends_on:
+      - ursim
+    networks:
+      - ur_net
+    # For webcam + GUI (RViz/OpenCV window)
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./ros2_ws:/root/ros2_ws:rw
+    devices:
+      - /dev/video0:/dev/video0
+    privileged: true
+    command: >
+      bash -lc "
+      source /opt/ros/humble/setup.bash &&
+      cd /root/ros2_ws &&
+      colcon build --packages-select camera_click_teleop &&
+      source install/setup.bash &&
+      ros2 launch camera_click_teleop ur5_all_in_one.launch.py robot_ip:=ursim
+      "
+
+networks:
+  ur_net:
+    driver: bridge
