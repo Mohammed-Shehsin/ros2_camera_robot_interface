@@ -161,6 +161,41 @@ Check UR5 state:
 ros2 topic echo /joint_states --once
 ros2 control list_controllers
 ```
+##  Demo Screenshots
+
+### UR5 Click Teleoperation – Center Click
+<img src="media/photos/ur5_click_center.png" width="400">
+This screenshot shows the OpenCV camera interface with a click near the center of the image.  
+The green square indicates the detected click position, and the green horizontal line marks the image center.
+
+
+### UR5 Click Teleoperation – Upper Click
+<img src="media/photos/ur5_click_upper.png" width="400">
+Clicking above the center line results in an upward joint motion of the UR5, visualized in RViz.
+
+
+### UR5 Click Teleoperation – Lower Click
+<img src="media/photos/ur5_click_lower.png" width="400">
+Clicking below the center line results in a downward joint motion of the UR5 robot.
+
+
+### UR5 Robot Motion in RViz
+<img src="media/photos/ur5_rviz_motion.png" width="500">
+This screenshot shows the UR5 robot moving in RViz as a result of camera-based click teleoperation.
+
+---
+
+##  Demo Video
+
+A complete demonstration video of the system is available in the repository:
+```
+media/videos/DemoVideo.mp4
+```
+
+The video demonstrates:
+- One-command system launch
+- Camera click interaction
+- Corresponding UR5 robot motion in RViz
 ### Current Project Status
 Feature	Status
 - Camera → OpenCV window	✔️
