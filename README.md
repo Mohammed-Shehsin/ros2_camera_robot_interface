@@ -171,7 +171,7 @@ docker-compose up --build
 ```
 Open URSim:
 ```
-http://127.0.0.1:6080/vnc.html
+http://192.168.56.101:6080/vnc.html
 ```
 
 Then run External Control (Play) in PolyScope.
