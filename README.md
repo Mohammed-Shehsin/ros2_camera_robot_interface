@@ -127,7 +127,7 @@ This automatically starts:
 Important:
 After launch, open URSim in a browser:
 ```
-http://127.0.0.1:6080/vnc.html
+http://192.168.56.101:6080/vnc.html
 ```
 Then:
     - Power ON
